@@ -4,7 +4,7 @@
 #PREPARING WORKSPACE
 rm(list=ls())
 #Root directory
-directory <- "~/Dropbox/Science/Turtles/Masters/data flow/"
+directory <- "~/Dropbox/Science/Turtles/Masters/strandings-RSC/"
 #Sub-directories
 dir.data <- paste0(directory,'data/') 
 dir.sup <- paste0(directory,"plots and tables/supplementary material/")
