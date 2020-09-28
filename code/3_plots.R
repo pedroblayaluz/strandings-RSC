@@ -21,15 +21,15 @@ chelonia.strandings.plot <- chelonia.plot.data %>%
   coord_cartesian(clip = 'off')
 
 #Loggerhead
-cols2 <- c('nests'="black","strandings"="darkgoldenrod4","BAR"="#62c76b")
-line_types2 <- c("nests"=2,"strandings"=1)
+cols2 <- c('Brazil'="black","strandings"="darkgoldenrod4","BAR"="#62c76b")
+line_types2 <- c("Brazil"=2,"strandings"=1)
 caretta.strandings.plot <- caretta.plot.data %>%
   ggplot(aes(x=year,y=n/km)) + geom_point(size=0.5,color='darkgoldenrod') +
   geom_violin(aes(group = cut_width(year, 1)),scale = "width", alpha=0.3, color='darkgoldenrod2',fill='darkgoldenrod2') +
-  geom_line(aes(group=1,linetype='nests',colour='nests',y=nests/10000),size=0.5, alpha=0.6)+
+  geom_line(aes(group=1,linetype='Brazil',colour='Brazil',y=Brazil/10000),size=0.5, alpha=0.6)+
   scale_y_continuous(
     name = "stranded turtles/km surveyed",
-    sec.axis = sec_axis(trans=~.*10000, name="nests\n ")) +
+    sec.axis = sec_axis(trans=~.*10000, name="Brazil\n ")) +
   scale_colour_manual(name=" ",values=cols2, 
                       guide = guide_legend(override.aes=aes(fill=NA))) + 
   scale_linetype_manual(name=' ',values=line_types2)+
@@ -101,10 +101,10 @@ plot.cc.effects.w10 <- effects.offset(cc.strandings.model,'w10')+
         plot.title = element_text(size=8))
 
 #Brazil
-plot.cc.effects.nests <- effects.offset(cc.strandings.model,'nests') +
+plot.cc.effects.Brazil <- effects.offset(cc.strandings.model,'Brazil') +
   scale_y_continuous(limits = c(0,0.2), breaks=c(0,0.1,0.2)) +
   scale_x_continuous(breaks=c(1000,4000)) +
-  labs(tag='(i)',title='p<0.001', y='',x='Brazil nests') +
+  labs(tag='(i)',title='p<0.001', y='',x='Brazil Brazil') +
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),
         plot.title = element_text(size=8))
@@ -125,7 +125,7 @@ strandings.plot <- ggarrange(ggarrange(chelonia.strandings.plot,caretta.strandin
                                   ggplot() + theme_void(),
                                   plot.cc.effects.sst,
                                   plot.cc.effects.w10,
-                                  plot.cc.effects.nests,
+                                  plot.cc.effects.Brazil,
                                   ncol=1,
                                   heights=c(1,2,2,2,2,
                                             1,2,2,2)),
@@ -206,7 +206,7 @@ rm(label.plot,
    plot.cm.effects.sst,
    plot.cm.effects.tri,
    plot.cm.effects.w10,
-   plot.cc.effects.nests,
+   plot.cc.effects.Brazil,
    plot.cc.effects.sst,
    plot.cc.effects.w10,
    cols,cols2,

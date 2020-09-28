@@ -1,8 +1,8 @@
 #DATA PROCESSING
 
 #Calling survey and effort date
-surveys <- read.csv('surveysfinal.csv', header=T)
-efforts <- read.csv('efforts.csv', header=T)
+surveys <- read.csv(paste0(dir.data,'surveysfinal.csv'), header=T)
+efforts <- read.csv(paste0(dir.data,'efforts.csv'), header=T)
 efforts <- efforts %>% filter(year>=1996)
 surveys <- surveys %>% filter(year>=1996)
 
@@ -52,18 +52,18 @@ message(dim(surveys %>% filter(spp %in% 'Caretta caretta') %>%
 
 #Including environmental variables
 #Wind
-wind <- read.csv('wind10days.csv', header=T)[,-1]
+wind <- read.csv(paste0(dir.data,'wind10days.csv'), header=T)[,-1]
 chelonia.strandings <- merge(chelonia, wind, by=c('day', 'month', 'year'))
 caretta.strandings <- merge(caretta, wind, by=c('day', 'month', 'year'))
 #Temperature
-temperature <- read.csv('temperature.csv', header=T)[,-1]
+temperature <- read.csv(paste0(dir.data,'temperature.csv'), header=T)[,-1]
 chelonia.strandings <- merge(chelonia.strandings, temperature, by=c('month', 'year'))
 caretta.strandings <- merge(caretta.strandings, temperature, by=c('month', 'year'))
 
 #Green turtle
 #Include reproductive data
-ascension <- read.csv('ascension.csv')
-trindade <- read.csv('trindade.csv')[,-1]
+ascension <- read.csv(paste0(dir.data,'ascension.csv'))
+trindade <- read.csv(paste0(dir.data,'trindade.csv'))[,-1]
 #Rename
 names(ascension) <- c('year','Ascension')
 names(trindade) <- c('year','Trindade')
@@ -79,15 +79,16 @@ chelonia.strandings <- merge(chelonia.strandings,trindade,by='year')
 chelonia.strandings <- chelonia.strandings[-which(is.na(chelonia.strandings$Trindade)),] #Removing NAs
 
 #Loggerhead turtle
-brazil <- read.csv('brazil.csv')
+brazil <- read.csv(paste0(dir.data,'brazil.csv'))
 brazil <- brazil[,c(5,4)]
 #Add 15 year delay (mean age of turtles found stranded)
 brazil$year <- brazil$year+15
+brazil <- rename(brazil,Brazil='nests')
+
 #Data for plots
 caretta.plot.data <- merge(caretta.strandings,brazil, by='year', all.x = T)
 #Data for models
 caretta.strandings <- merge(caretta.strandings,brazil, by='year')
-
 #BODY SIZES
 caretta.sizes <- (surveys %>% filter (!ccl %in% NA) %>%
                  filter(spp %in% 'Caretta caretta'))[,c('month','year','ccl')]

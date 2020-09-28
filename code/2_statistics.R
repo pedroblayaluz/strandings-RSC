@@ -34,7 +34,7 @@ cdfcomp(fit.list)
 cm.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+Trindade+Ascension,data=chelonia.strandings)
 summary(cm.strandings.model)
 #Loggerhead
-cc.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+nests,data=caretta.strandings)
+cc.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+Brazil,data=caretta.strandings)
 summary(cc.strandings.model)
 
 #BODY SIZES

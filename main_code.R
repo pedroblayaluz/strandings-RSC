@@ -14,7 +14,7 @@ setwd(dir.data)
 source(paste0(dir.code,'0_packages.r'))
 #------------#
 
-#DATA IMPORT AND PROCCESSING
+#DATA IMPORTING AND PROCCESSING
 source(paste0(dir.code,'1_data_processing.r'))
 
 #------------#
