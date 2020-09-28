@@ -49,6 +49,3 @@ summary(cm.sizes.model)
 #Loggerhead turtle
 cc.sizes.model <- lm(ccl~as.factor(year)+as.factor(month), data=caretta.sizes)
 summary(cc.sizes.model)
-
-#Saving data for plots
-save(cc.strandings.model, cm.strandings.model, file=paste0(dir.data,'models.rda'))
