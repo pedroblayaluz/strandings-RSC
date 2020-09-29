@@ -48,13 +48,11 @@ sizes.plot
 #------------#
 
 #SUPPLEMENTARY MATERIAL
-
 source(paste0(dir.code,'4_supplementary_material.r'))
 
 #Summary tables
-cc.table
-cm.table
+complete.table
 #Monthly strandings distribution
 monthly.strandings
-#Monthly covariates distribution
+#Temporal covariates distribution
 covariates
