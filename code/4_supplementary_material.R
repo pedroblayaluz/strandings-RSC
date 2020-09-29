@@ -46,7 +46,10 @@ lastlinecm[2:3] <- round(lastlinecm[2:3],digits=2)
 cm.table <- rbind(cm.table,lastlinecm)
 cc.table <- rbind(cc.table,lastlinecc)
 complete.table <- cbind(cm.table[,c(1,6,2:5)],cc.table[,c(6,2:5)])
-
+complete.table <- rbind(names(complete.table),complete.table)
+names(complete.table) <- c(' ','Green turtle',' ',' ',' ',' ',
+                           'Loggerhead',' ',' ',' ',' ')
+complete.table
 #Writing files
 cm.table
 write.csv(complete.table,paste0(dir.sup,'complete_table.csv'))
