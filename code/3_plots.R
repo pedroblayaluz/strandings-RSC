@@ -104,7 +104,7 @@ plot.cc.effects.w10 <- effects.offset(cc.strandings.model,'w10')+
 plot.cc.effects.Brazil <- effects.offset(cc.strandings.model,'Brazil') +
   scale_y_continuous(limits = c(0,0.2), breaks=c(0,0.1,0.2)) +
   scale_x_continuous(breaks=c(1000,4000)) +
-  labs(tag='(i)',title='p<0.001', y='',x='Brazil Brazil') +
+  labs(tag='(i)',title='p<0.001', y='',x='Brazil nests') +
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),
         plot.title = element_text(size=8))
