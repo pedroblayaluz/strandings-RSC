@@ -81,6 +81,7 @@ chelonia.strandings <- chelonia.strandings[-which(is.na(chelonia.strandings$Trin
 #Loggerhead turtle
 brazil <- read.csv(paste0(dir.data,'brazil.csv'))
 brazil <- brazil[,c(5,4)]
+brazil <- brazil[which(brazil$year>=1988),]
 #Add 15 year delay (mean age of turtles found stranded)
 brazil$year <- brazil$year+15
 brazil <- rename(brazil,Brazil='nests')
