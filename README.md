@@ -3,14 +3,6 @@ in the southwestern Atlantic Ocean?
 ================
 Pedro Blaya Luz
 
--   [Description](#description)
--   [Code sections](#code-sections)
-    -   [Setting up the environment](#setting-up-the-environment)
-    -   [Data importing and processing](#data-importing-and-processing)
-    -   [Statistical modeling](#statistical-modeling)
-    -   [Plots](#plots)
-    -   [Supplementary material](#supplementary-material)
-
 ## Description
 
 This repository contains analysis scripts from the article “*Are green
@@ -21,8 +13,8 @@ analysis code is divided into several separate scripts, which are called
 from
 [main\_code.r](https://github.com/pedroblayaluz/strandings-RSC/blob/master/main_code.R).
 
-The following is a description of the **analysis code structure**,
-executed in
+The following is a brief description of the analysis code structure, as
+run inside
 [main\_code.r](https://github.com/pedroblayaluz/strandings-RSC/blob/master/main_code.R).
 To see the results and get more detailed information please read the
 article at [link](www.google.com)
