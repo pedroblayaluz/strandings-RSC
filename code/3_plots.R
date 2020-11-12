@@ -1,20 +1,21 @@
 #PLOTS
 #STRANDINGS
 #Green turtle
-cols <- c('Ascension'="black","strandings"="darkseagreen4")
-line_types <- c("strandings"=1,"Ascension"=2)
+cols <- c('Trindade'='black','Ascension'="black","strandings"="darkseagreen4")
+line_types <- c("strandings"=1,"Ascension"=2,'Trindade'=NA)
 chelonia.strandings.plot <- chelonia.plot.data %>%
   ggplot(aes(x=year,y=n/km)) + geom_point(size=0.5,color='darkseagreen') +
   geom_violin(aes(group = cut_width(year, 1)), scale = "width", alpha=0.3, color='darkseagreen',fill='darkseagreen') +
   stat_summary(aes(linetype='strandings', colour="strandings"),fun=mean, geom="line", size=.5) + 
   geom_line(aes(linetype='Ascension', colour="Ascension",y=Ascension/200000),alpha=0.8)+
+  geom_point(aes(linetype='Trindade', colour="Trindade",y=Trindade/20000),shape=6, stat='unique')+
   scale_y_continuous(
     name = "stranded turtles/km surveyed",
     sec.axis = sec_axis(trans=~.*200000, name="")) +
   theme_light() + labs(title="Green turtle", tag='(a)') +
   scale_colour_manual(name=" ",values=cols,
                       guide = guide_legend(override.aes = list(
-                        shape = c(NA, 6)))) + 
+                        shape = c(NA, NA, 6)))) + 
   scale_linetype_manual(name=' ',values=line_types)+
   theme(plot.tag=element_text(size=10), legend.background = element_blank(),  legend.position = c(0.15,0.9)) +
   coord_cartesian(clip = 'off')
@@ -66,12 +67,20 @@ plot.cm.effects.w10 <- plot.cm.effects.w10 +
 plot.cm.effects.asc <- effects.offset(cm.strandings.model,'Ascension')
 plot.cm.effects.asc <- plot.cm.effects.asc +
   scale_y_continuous(limits = c(0,0.22),breaks=c(0,0.1,0.2)) +
-  scale_x_continuous(breaks=c(20000,55000,100000)) +
-  labs(tag='(e)',title='p=0.11', y='',x='Ascension hatchlings')+
+  scale_x_continuous(breaks=c(35000,55000,75000)) +
+  labs(tag='(e)',title='p=0.009', y='',x='Ascension hatchlings')+
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),
         plot.title = element_text(size=8))
-
+#Trindade
+plot.cm.effects.tri <- effects.offset(cm.strandings.model,'Trindade')
+plot.cm.effects.tri <- plot.cm.effects.tri +
+  scale_y_continuous(limits = c(0,0.22),breaks=c(0,0.1,0.2)) +
+  scale_x_continuous() +
+  labs(tag='(f)',title='p=0.09', y='',x='Trindade tracks')+
+  theme_linedraw() +
+  theme(plot.tag=element_text(size=10),
+        plot.title = element_text(size=8))
 #Loggerhead effects plots
 #SST
 plot.cc.effects.sst <- effects.offset(cc.strandings.model,'sst') +
@@ -112,12 +121,13 @@ strandings.plot <- ggarrange(ggarrange(chelonia.strandings.plot,caretta.strandin
                                   plot.cm.effects.sst,
                                   plot.cm.effects.w10,
                                   plot.cm.effects.asc,
+                                  plot.cm.effects.tri,
                                   ggplot() + theme_void(),
                                   plot.cc.effects.sst,
                                   plot.cc.effects.w10,
                                   plot.cc.effects.Brazil,
                                   ncol=1,
-                                  heights=c(1,2,2,2,
+                                  heights=c(1,2,2,2,2,
                                             1,2,2,2)),
                         ggplot() + theme_void(),
                         ncol=3, widths = c(12,2,.5)
@@ -187,20 +197,20 @@ sizes.plot <- ggarrange(nrow=2,heights = c(5,2),
   ggarrange(chelonia.monthly.plot,caretta.monthly.plot,ncol=2))
 
 #Saving plots:
-#ggsave(filename = 'strandings.jpg',
-#       path=dir.pap,
-#       plot=strandings.plot,
-#       width=26,
-#       height=26,
-#       units='cm',
-#       dpi=320)
-#ggsave(filename = 'sizes.jpg',
-#       path=dir.pap,
-#       plot=sizes.plot,
-#       width=26,
-#       height=26,
-#       units='cm',
-#       dpi=320)
+ggsave(filename = 'strandings.jpg',
+       path=dir.pap,
+       plot=strandings.plot,
+       width=26,
+       height=26,
+       units='cm',
+       dpi=320)
+ggsave(filename = 'sizes.jpg',
+       path=dir.pap,
+       plot=sizes.plot,
+       width=26,
+       height=26,
+       units='cm',
+       dpi=320)
 
 #Removing local objects
 rm(label.plot,

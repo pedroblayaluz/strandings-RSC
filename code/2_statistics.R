@@ -31,7 +31,7 @@ ppcomp(fit.list)
 cdfcomp(fit.list)
 chelonia.strandings
 #Green
-cm.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+Ascension,data=chelonia.strandings)
+cm.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+Ascension+Trindade,data=chelonia.strandings)
 summary(cm.strandings.model)
 #Loggerhead
 cc.strandings.model <- glm.nb(n~offset(log(km))+sst+w10+Brazil,data=caretta.strandings)

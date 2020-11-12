@@ -63,14 +63,21 @@ caretta.strandings <- merge(caretta.strandings, temperature, by=c('day','month',
 #Green turtle
 #Include reproductive data
 ascension <- read.csv(paste0(dir.data,'ascension.csv'))
+trindade <- read.csv(paste0(dir.data,'trindade2.csv'))[,-1]
+
 #Rename
 names(ascension) <- c('year','Ascension')
+names(trindade) <- c('year','Trindade')
+
 #Add 5 year delay (mean age of turtles found stranded)
 ascension$year <- ascension$year+5
+trindade$year <- trindade$year+5
 #Data for plots
 chelonia.plot.data <- merge(chelonia.strandings,ascension, by='year', all.x = T)
+chelonia.plot.data <- merge(chelonia.plot.data,trindade, by='year', all.x = T)
 #Data for models
 chelonia.strandings <- merge(chelonia.strandings,ascension, by='year')
+chelonia.strandings <- merge(chelonia.strandings,trindade, by='year')
 
 #Loggerhead turtle
 brazil <- read.csv(paste0(dir.data,'brazil.csv'))
