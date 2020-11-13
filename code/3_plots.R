@@ -67,8 +67,8 @@ plot.cm.effects.w10 <- plot.cm.effects.w10 +
 plot.cm.effects.asc <- effects.offset(cm.strandings.model,'Ascension')
 plot.cm.effects.asc <- plot.cm.effects.asc +
   scale_y_continuous(limits = c(0,0.22),breaks=c(0,0.1,0.2)) +
-  scale_x_continuous(breaks=c(35000,55000,75000)) +
-  labs(tag='(e)',title='p=0.009', y='',x='Ascension hatchlings')+
+  scale_x_continuous(breaks=c(40000,60000)) +
+  labs(tag='(e)',title='p<0.001', y='',x='Ascension hatchlings')+
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),
         plot.title = element_text(size=8))
@@ -76,8 +76,8 @@ plot.cm.effects.asc <- plot.cm.effects.asc +
 plot.cm.effects.tri <- effects.offset(cm.strandings.model,'Trindade')
 plot.cm.effects.tri <- plot.cm.effects.tri +
   scale_y_continuous(limits = c(0,0.22),breaks=c(0,0.1,0.2)) +
-  scale_x_continuous() +
-  labs(tag='(f)',title='p=0.09', y='',x='Trindade tracks')+
+  scale_x_continuous(breaks=c(4000,10000)) +
+  labs(tag='(f)',title='p=0.391', y='',x='Trindade tracks')+
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),
         plot.title = element_text(size=8))
@@ -103,7 +103,7 @@ plot.cc.effects.w10 <- effects.offset(cc.strandings.model,'w10')+
 #Brazil
 plot.cc.effects.Brazil <- effects.offset(cc.strandings.model,'Brazil') +
   scale_y_continuous(limits = c(0,0.2), breaks=c(0,0.1,0.2)) +
-  scale_x_continuous(breaks=c(1000,4000)) +
+  scale_x_continuous(breaks=c(2000,4500)) +
   labs(tag='(i)',title='p<0.001', y='',x='Brazil nests') +
   theme_linedraw() +
   theme(plot.tag=element_text(size=10),

@@ -1,4 +1,4 @@
-Are green and loggerhead strandings increasing due to population growth
+Are green and loggerhead turtle strandings increasing due to population growth
 in the southwestern Atlantic Ocean?
 ================
 Pedro Blaya Luz
@@ -6,7 +6,7 @@ Pedro Blaya Luz
 ## Description
 
 This repository contains analysis scripts from the article “*Are green
-and loggerhead strandings increasing due to population growth in the
+and loggerhead turtle strandings increasing due to population growth in the
 southwestern Atlantic Ocean?*” to be submitted to [Biological
 Conservation](www.journals.elsevier.com/biological-conservation). The
 analysis code is divided into several separate scripts, which are called
