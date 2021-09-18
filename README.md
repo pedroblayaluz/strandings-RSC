@@ -7,8 +7,8 @@ Pedro Blaya Luz
 
 This repository contains analysis scripts from the article “*Are green
 and loggerhead turtle strandings increasing due to population growth in the
-southwestern Atlantic Ocean?*” to be submitted to [Biological
-Conservation](www.journals.elsevier.com/biological-conservation). The
+southwestern Atlantic Ocean?*” to be submitted to [Animal
+Conservation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi3rIO5v4nzAhW6qZUCHcxaCeIQFnoECAMQAw&url=https%3A%2F%2Fzslpublications.onlinelibrary.wiley.com%2Fjournal%2F14691795&usg=AOvVaw3fLrptXaMnx2VNV3NtIJpl). The
 analysis code is divided into several separate scripts, which are called
 from
 [main\_code.r](https://github.com/pedroblayaluz/strandings-RSC/blob/master/main_code.R).
